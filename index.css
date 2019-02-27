@@ -1,0 +1,1217 @@
+@charset "UTF-8";
+/* CSS Document */
+*{box-sizing: border-box;
+/* レスポンシブにはつける
+　 　横幅を100%にしないと崩れる注意！*/
+	/*ブラウザに組み込まれているpaddingが反応しているので
+	html打った時に出てくる上部と横の謎の余白の消し方
+	次の制作でやってみよう
+	 　margin:0px;
+　 　　padding: 0px;
+	*/
+}
+html{
+	/*
+	font-family: '游ゴシック体', 'Yu Gothic', YuGothic, sans-serif;
+    font-weight: 500;	
+	font-weight: bold;
+	/*YuGothcはwinで細く表示されてボソボソに見えるので
+	  font-weight500で対策*/
+}
+body{
+	font-family: 'Lato', sans-serif,'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+
+	margin: 0;
+	list-style-type: none;
+	color:#333333;
+	line-height: 26px;
+	/* トップ以外でline-height26でない高さが多い時には変更*/
+}
+a{
+	text-decoration: none;
+}
+ul,li{
+	list-style: none;
+}
+/*=============各種フォーム 初期化============*/
+/*テキスト*/
+.text-text {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+  width: 100%;
+}
+
+.text-text:focus {
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  box-shadow: none;
+  outline: none;
+}
+/*テキストエリア*/
+.texta {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  height: 100px;
+  padding: 0.4em 0.8em;
+  width: 100%;
+}
+
+.texta:focus {
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  box-shadow: none;
+  outline: none;
+}
+
+/*ラジオボタン*/
+.radio123 {
+  display: none;
+}
+
+.radio123 + span {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 0.2em 0;
+  padding: 0 0 0 1.2em;
+  position: relative;
+}
+
+.radio123 + span::before {
+  -webkit-transform: translateY(-50%);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 16px;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+}
+
+.radio123 + span::after {
+  -webkit-transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.32);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  content: "";
+  height: 8px;
+  left: 4px;
+  opacity: 0;
+  padding: 2px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease 0s;
+  width: 8px;
+}
+.radio123:checked + span::after {
+  opacity: 1;
+}
+/*セレクトボックス*/
+select[name="type"] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent url(https://haniwaman.com/wp-content/uploads/2018/12/form-css-arrow.png) no-repeat center right 8px/16px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 0;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+}
+
+select[name="type"]::-ms-expand {
+  display: none;
+}
+
+select[name="type"]:focus {
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  box-shadow: none;
+  outline: none;
+}
+
+/*ボタン*/
+submit{
+  -webkit-appearance: none;
+  background-color: rgba(0, 0, 0, 0.32);
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  margin: 0 0 1em;
+  padding: 0.6em 2em;
+  text-decoration: none;
+}
+
+submit:hover,
+submit:focus {
+  outline: none;
+}
+
+submit::-moz-foucus-inner {
+  border: none;
+  padding: 0;
+}
+/*=========================================*/
+
+/*------ body ------*/
+.topnav{
+	width: 100%;
+	height: 100px;
+	color: #FFFFFF;
+	font-weight: bold;
+	background: #3F51B5;
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
+	/*　hedder上部固定、ここから*/
+	position: fixed;
+	top:0;
+	z-index: 10;
+	/*hedder上部固定ここまで*/
+}
+.container{
+	width: 1086px;
+	max-width: 100%;
+	margin: 0 auto;
+	padding:0.1px;
+	/*paddingがないと崩れるのでいれてある。なんでや*/
+}
+.toplogo{
+	float: left;
+}
+.toplogo-img{
+	width: 200px;
+	margin-top: 31px;
+}
+.toplist{
+	float:right;
+}
+.toplist ul{
+	margin-top: -3.5px;
+	/*ulがずれているので、いれてある。なんでや*/
+}
+.toplist ul li {
+    position: relative;
+    display: inline-block;
+	font-weight: 16px;
+	margin: 40px 0px 39px 30px;
+	cursor: pointer;
+	font-style: normal;
+	font-family: 'Lato', sans-serif;
+}
+/*赤線を入れる、ここから*/
+.toplist ul li::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #E81919;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform .3s;
+}
+.toplist ul li:hover::after {
+  transform: scale(1, 1);
+}
+/*赤線、ここまで*/
+.toplist ul li:last-child a {
+    margin-right: 0;
+}
+/*ナビゲーション消*/
+.headder-navbtn{
+	display:block;
+	position: absolute;
+	top:0;
+	right:0;
+	z-index: 30;
+	width: 62px;
+	height:62px;
+	background-size: 62px 62px;
+	}
+.headder-navbtn:hover, .headder-navbtn:active{
+	background-color: #fff;
+}
+/*サイズと表示位置を決定*/
+	.nav-container{
+	    position:absolute;
+		top: 62px;
+		right: 0;
+		z-index: 20;
+		margin: 0;
+		padding: 0;
+		width: 200px;
+	}
+	.globalnav{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.globalnav li a {
+		display: block;
+	}
+/*ヘッダーまわりはサイトに合わせて調整してください*/
+
+/*------ top ------*/
+top{
+	width: 100%;
+	height: 700px;
+	font-weight: bold;
+}
+.top-img{
+	background-image: url("../img/mainvisual@2x.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	margin-top: 1px;
+}
+.bg-mask {
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+	margin-top: 1px;
+}
+.mainitem{
+	font-weight:bold;
+	text-align: center;
+}
+.mainitem h1{
+	font-size: 68px;
+	margin-top:238px;
+	line-height: 106px;
+}
+.mainitem p{
+	font-size: 38px;
+	margin-top: -32px;
+	margin-bottom:92px;
+}
+.inquirybutton{
+	text-align: center;
+}
+.inquirybtn{
+	color: #FFFFFF;
+	font-size:38px;
+	padding: 13px 81px;
+	line-height: 61px;
+	font-weight:bold;
+	background-color: #3F51B5;
+    display: inline-block;
+	border-radius: 12px;
+    transition: .2s;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+	margin-top: 1px;
+	margin-bottom: 138px;
+	cursor: pointer;
+}
+.inquirybtn:hover {
+  background: rgba(63, 81, 181, 0.8);
+}
+.inquirybtn:active {
+  /*押したとき*/
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);/*沈むように*/
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+/*==========   DAY 2   ===========*/
+
+/*- titlebar -*/
+.titlebar{
+	text-align:center;
+}
+h2{
+	position: relative;
+    display: inline-block;
+  	margin-bottom: 2em;
+	margin-top: 56px;
+	text-align:center;
+	line-height: 96px;
+	font-size: 60px;
+	font-family: 'Lato', sans-serif;
+			}
+h2:before {
+	content: '';
+	position: absolute;
+	bottom: -40px;/*上との距離*/
+	display: inline-block;
+	width: 65px;
+	height: 5px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+		    transform: translateX(-50%);
+		    background-color: #3F51B5;
+	     	border-radius: 2px;
+}
+/*-- cards start--*/
+.card-cont{
+	width: 100%;
+	height: 1130px;
+	margin: 0 auto;
+	padding-bottom: 142px;
+	background-color: #EFEFEF;
+}
+/*- card-item -*/
+.card-items {
+	/*横並び*/
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.card-item {
+	box-sizing: border-box;
+    border-radius: 4px;
+	color: rgba(111, 117, 121, 1);
+	background-color: rgba(255, 255, 255, 1);	
+    margin: 0 30px 20px 0;
+	/*アイテムの幅調整。必要な余白は３つのアイテムの間にある30pxと30pxになります。合計すると60pxです。
+この60pxを３つのアイテムに均等に分け与えてあげると、60px / 3 = 30px（小数点以下を切り上げ）になります。それぞれの33.333333%から34pxを引いてあげれば、余白は常に一定だけをアイテムは可変にすることができます。*/
+    width: calc(33.3333333% - 30px);
+	padding: 16px 16px 28px 16px;
+	margin-right: auto;
+}
+.card-img{
+	width: 100%;
+	/*imgはサイズ固定で作成する
+	　 　画像サイズを画面サイズやウインドウ幅(＝描画領域の横幅)に合わせるだけならwidth:100%;*/
+}
+.card-word{
+	text-align: left;
+}
+/*==========   DAY 5   ===========*/
+
+/*- NEWS -*/
+.news-cont{
+	margin: 0 auto;
+	height: 668px;
+	background-color:#FFFFFF; 
+	margin-bottom: 33px;
+}
+.n-cont{
+	width:838px;
+	margin: 0 auto;
+	max-width: 100%;
+	font-size: 16px;
+	font-weight: normal;
+	overflow:hidden;
+	
+}
+/*JALのパクリ*/
+.topic-item{
+	margin-bottom: 22.5px;
+	border-bottom: 1px solid #707070;
+	width:838px;
+}
+.topic-item:last-child{
+	border-bottom: none;
+}
+.head{
+	display: inline-block;
+	vertical-align: top;
+	position:absolute;
+	text-align: left;
+}
+.date{
+	font-family: 'Lato', sans-serif;
+}
+.lavel{
+	border-radius: 6px;
+	padding: 5px 18px;
+	margin: 0 30px 16px ;
+	color: #FFFFFF;
+	transition: all 0.3s ease 0s;
+}
+.lavel:hover{
+	opacity: 0.7;
+}
+.lavel a{
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.txt{
+	padding-left: 253px;
+	font-size: 16px;
+	color: #333333;
+	transition: all 0.3s ease 0s;	
+}
+.txt a {
+	color: #333333;
+	transition: all 0.3s ease 0s;
+}
+.txt a:hover{
+	color:#3F51B5;
+}
+.lav-1{
+	background: #666666;
+}
+.lav-2{
+	background: #3F51B5;
+}
+.lav-3{
+	background:#E81919;
+}
+.btmore{
+	text-align: center;
+}
+.more{
+	color:#E81919;
+	font-weight: bold;
+	margin-bottom: 33px;
+	transition: all 0.3s ease 0s;
+	font-family: 'Lato', sans-serif;
+}
+.more:hover{
+	opacity: 0.5;
+}
+.aftermore{
+	margin-left:7px;
+	margin-top: 16px;
+}
+
+/*========= DAY6 ===========*/
+/*----- Price -----*/
+.price-cont{
+    width: 100%;
+	padding-bottom: 102px;
+	background-color: #EFEFEF;
+}
+.haan-img{
+	width: 360px;
+	height: 300px;
+	float: left;
+}
+.classtable-cont{
+	float: right;
+}
+table{
+	/*罫線を１本にする*/
+	border-collapse:collapse;
+	border:1px solid #707070;
+	table-layout: fixed;
+	font-weight: normal;
+	width: 608px;
+	height: 226px;
+}
+td, th{
+	border:1px solid #707070;
+}
+th{
+	background-color:#999999;
+	color:#FFFFFF;
+	font-family: 'Lato', sans-serif;
+}
+td{
+	text-align: right;
+}
+.red{
+	color:#E81919;
+}
+.ask{
+	display: inline-block;
+	padding-left: 120px;
+	font-weight: normal;
+}
+.underbar{
+	color:#333333 ;
+	border-bottom: 1px solid #707070;
+	transition: all 0.3s ease 0s;
+}
+.underbar:hover{
+	color: #3F51B5;
+}
+.quelytable{
+	display: none;
+}
+	/*--- price-table end ---*/
+
+/*----- Access -----*/
+access{
+	background-color:#FFFFFF; 
+}
+.access-conts{/*実際のコンテナ*/
+	width: 100%;
+	padding-bottom: 188px;
+}
+.access-cont{/*mapのsizeの枠になっている*/
+	width: 800px;
+	height: 965px;
+	margin: 0 auto; 
+}
+/*絶対に理解しておくべきポイントは、padding-top: 75%;の部分。
+ここは、取得した埋め込み要素の「高さ ÷ 幅 × 100」で算出された値を指定する必要があります。ここの値によって縦横比が決まるので埋め込み要素で指定した高さと幅によって指定が変わってきます。
+今回のケースだと、幅がwidth="800"で、高さがheight="600"です。
+600 ÷ 800 × 100 = 75
+ということで、75%が指定
+youtubeも同じ*/
+.iframe-map {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 0;
+  padding-top: 75%; /* = height ÷ width × 100 */
+}
+.iframe-map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.map-btn-cont{
+	text-align: center;
+}
+.map-btn{
+	color: #FFFFFF;
+	font-size:20px;
+	padding: 16px 59px;
+	line-height: 32px;
+	font-weight:bold;
+	background-color: #3F51B5;
+    display: inline-block;
+	border-radius: 12px;
+    transition: .2s;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+	margin-top: 1px;
+	margin-bottom: 136px;
+	cursor: pointer;
+}
+.map-btn:after {
+	background-img: url("../svg/access-arrow.svg") ;
+}
+.map-btn:hover {
+    background: rgba(63, 81, 181, 0.8);
+}
+.map-btn:active {
+    /*押したとき*/
+	-webkit-transform: translateY(5px);
+	transform: translateY(5px);/*沈むように*/
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.place{
+	margin:42px 0 38px;
+	font-weight: normal;
+}
+dt{
+	float: left;
+}
+dd{
+	padding-left:118px;
+}
+.underbar{
+	border-bottom:1px solid #333333;
+}
+/*---------- Contact ---------*/
+.contact-cont{
+	background-color: #EFEFEF;
+	height: 1258px;
+	padding-bottom: 116px;
+}
+.contact-contcont{
+	width: 800px;
+	height: 912px;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+	padding-top: 27px;
+}
+.hissu{
+	border-radius: 12px;
+	background-color: #E81919;
+	color: #FFFFFF;
+	line-height: 22px;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 3px 9px;
+}
+.responsive-on{
+	display: none;
+}
+.test1{
+	display:flex;
+}
+
+
+.text-text{
+	width: 528px;
+	height: 60px;
+}
+select{
+	width: 528px;
+	height: 60px;
+	margin-left: auto;
+}
+form {
+  /* フォームをページの中央に置く */
+  margin: 0 auto;
+  width: 706px;
+}
+label {
+  /* すべてのラベルを同じサイズにして、きちんと揃える */
+  display: inline-block;
+  text-align: left;
+}
+.textfield-label{
+  font-size: 18px;
+  line-height: 29px;
+  margin-bottom: 49px;
+  text-align: left;
+  padding-top: 15px;
+}
+input, textarea{
+  /* すべてのテキストフィールドを同じサイズにする */
+  ox-sizing: border-box;
+  font-size: 16px;
+  line-height: 16px;
+  /* テキストフィールドのボーダーの外見を同一にする */
+  border: 1px solid #707070;
+	margin-left: auto;
+}
+textarea {
+  /* 複数行のテキストフィールドをラベルにきちんと揃える */
+  vertical-align: 30%;
+  /* テキスト入力に十分な領域を与える */
+	width: 528px;
+	height: 240px;
+}
+.texta{
+	height: 240px;
+}
+input{
+	font-weight: normal;
+	}
+.radio123{
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: normal;
+	padding-right: 30px;
+	transform: scale(1.5);
+    margin-left:10px;
+	
+}
+.font-normal{
+	margin-left: 155px ;
+}
+.radio123 + span::before {
+    -webkit-transform: translateY(-50%);
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 30px;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+}
+.radio123 + span::after {
+    -webkit-transform: translateY(-50%);
+    background: #3F51B5;
+    border: 10px solid #3F51B5;
+    border-radius: 50%;
+    content: "";
+    height: 4px;
+    left: 4px;
+    opacity: 0;
+    padding: 0.5px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease 0s;
+    width: 4px;
+}
+.font-normal{
+	font-weight: normal;
+}
+.check-group{
+	margin-bottom: 50px;
+	margin-top: 41px;
+	position: relative;
+}
+.privacy{
+	display: block;
+	text-align:center;
+}
+/*privacy-btn*/
+
+
+
+
+/*submit-btn*/
+.submitbtn{
+	text-align: center;
+}                        
+input[type="submit"]{
+	color: #FFFFFF;
+	font-size:20px;
+	padding: 14px 87px;
+	line-height: 36px;
+	font-weight:bold;
+	background-color: #3F51B5;
+    display: inline-block;
+	border-radius: 12px;
+    transition: .2s;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+	
+	margin-bottom: 0px;
+	cursor: pointer;
+}
+input[type="submit"]:after {
+	background-img: url("../svg/contact-arrow.svg");
+}
+input[type="submit"]:hover {
+  background: rgba(63, 81, 181, 0.8);
+}
+input[type="submit"]:active {
+  /*押したとき*/
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);/*沈むように*/
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+/*----- Day 8 -----*/
+/*----- footer -----*/
+footer{
+	/*グラデーション！linear-gradient(開始位置, 開始色, 終了色);
+	  ３行目！linear-gradient(to 方向, 開始色, 終了色)
+	*/
+	background: -moz-linear-gradient(top,#666666,#333333); 
+	background: -webkit-linear-gradient(top,#666666,#333333); 
+	background: linear-gradient(to bottom, #666666, #333333); 
+	width: 100%;
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 26px;
+	padding-bottom: 31px;
+}
+
+/*flex-boxで等間隔並びにするよ！*/
+.logo-conte  .footer-list .sns-links{
+	/*この３つを横並にするよ！*/
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-conte{
+	display:flex;
+	justify-content: space-between;
+}
+/*flex-box  end*/
+
+.foot-logo-png{
+	width: 200px;
+	height: 39px;
+	margin:74px 0 0 152px;
+}
+.address-tell{
+	margin:30px 0 0 152px;
+}
+.address{
+	margin-top:13px;
+}
+.footer-list ul li {
+    position: relative;
+    display: inline-block;
+	font-size: 16px;
+	font-style: normal;
+	margin: 70px 30px 0 0;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+	font-family: 'Lato', sans-serif;
+}
+.footer-list ul li:hover{
+	opacity: 0.5;
+}
+.sns-links{
+	margin-top: 85px;
+	margin-right: 136px;
+	transition: all 0.3s ease 0s;
+}
+.tw .fb{
+	margin-right: 16px;
+}
+.tw .fb .ig{
+	width: 30px;
+	transition: all 0.3s ease 0s;
+}
+.tw:hover{
+	opacity: 0.5;
+}
+.fb:hover{
+	opacity: 0.5;
+}
+.ig:hover{
+	opacity: 0.5;
+}
+.foot-copy{
+	text-align: center;
+	font-size: 14px;
+	line-height: 22px;
+	margin-top: 60px;
+	font-family: 'Lato', sans-serif;
+}
+.foot-conte-width{
+	width: 1136px;
+	margin: 0 auto;
+}
+
+/* ----- footer end ----- */
+
+/*----- to-top -----*/
+.to-top{
+	float: right;
+	margin-right: 19px;
+	margin-bottom: 14px;
+}
+.to-top-svg{
+	width: 60px;
+	vertical-align: top;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+
+}
+.to-top-svg:hover{
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+#pagetopbtn {
+	/*position:fixedとz-index:はセット！！*/
+	
+    position: fixed; /*ボタンの配置場所を固定。
+	absoluteと同じく絶対位置への配置になるが、
+	画面をスクロールした際も位置が固定されたままになる。*/
+	z-index: 9;   /*値が大きいほど前面へ来る。*/
+	/*サイズと位置*/
+    bottom: 88px;
+    left: 80%;
+    margin-left: 120px;
+}
+#pagetopbtn a {
+    display: block; /*配置の調整*/
+}
+
+/* パソコンで表示する場合のCSS */
+@media (min-width: 768px) {
+#PageTopBtn {
+	width: 100%;
+}
+#PageTopBtn a {
+    width: 100px; /*ボタンの幅*/
+    height: 70px; /*ボタンの高さ*/
+    padding: 24px 0; /*文字の配置場所の調整*/
+}
+}
+/* スマホで表示する場合のCSS */
+@media (max-width: 767px) {
+#PageTopBtn {
+	width: 50%;
+}
+#PageTopBtn a {
+    width: 70px;
+    height: 50px;
+    padding: 17px 0;
+}
+}
+/*=========================================*/
+/*=========================================*/
+/*=========================================*/
+/*               レスポンシブ                */
+/*=========================================*/
+/*=========================================*/
+/*=========================================*/
+/*=========================================*/
+
+@media screen and (max-width:768px){
+  /*スマホ用*/
+	body{
+		letter-spacing: normal;
+	}
+	.toplist{
+		display: none;
+	}
+	.top-img{
+		width: 100%;
+		height: 10;
+		/* (画像の高さ / 画像の横幅) × 100 */
+		padding-top: 66.6666666667%;
+		background: url("../img/mainvisual.png");
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+	}
+	.mainitem h1{
+		margin-top:-20%;
+		box-sizing: inherit;
+		font-size: 3.5rem;
+	}
+	.mainitem a{
+		font-size: 2rem;
+    }
+	.inquirybtn{
+		width: 90%;
+		font-size: 2rem;
+	}
+	/*--------- card ---------*/
+	
+	
+	
+	
+	
+	.card-items {
+        display: flex;
+		flex-direction: column;
+    }
+	.card-item{
+	/*	margin:0 auto 15px;  */
+		    width: auto!important;
+	}
+		.card-cont{
+		height:  auto;
+	}
+	/*--------- NEWS ---------*/
+	.n-cont{
+		margin: 0 auto;
+		width: 80%;
+	}
+	.txt{
+		width: 50%;
+	}
+	.more{
+		max-height: 25px;
+		font-size: 2rem;
+	}
+	.aftermore{
+		margin-top: 15px;
+		margin-left:17px;
+		height: 20px;
+}
+		/*--- price-table ---*/
+	.haan-img{
+	margin-bottom: 30px;
+}
+	.price-cont{
+		padding-bottom: 30px;
+	}
+.classtable-cont{
+	display: none;
+}
+	table{
+	border-collapse:collapse;
+	table-layout: fixed;
+	border-style: none;
+}
+td{
+	width: 300px;
+	border-style: none;
+	}
+	th{
+		width: 300px;
+		border-style: none;
+	}
+.quelytable{
+	margin: 0 auto;
+	display:flex;
+	flex-wrap: wrap;
+	width: 100%;
+	}
+	.ask{
+		padding-left: 10px;
+	}
+	/*--- price-table end ---*/
+	/*----- access -----*/
+	.access-conts{
+	padding-bottom: 50px;
+}
+	/*----- Contact -----*/
+
+	.contact-cont{
+		width: 100%;
+		height: 100%;
+	}
+	.contact-contcont{
+	width:80%;
+		height: 100%;
+    }
+	.responsive-on{
+		display: block;
+	}
+	.responsive-non{
+		display: none;
+	}
+.hissu{
+		margin: 8px;
+		line-height: 15px;
+	}
+.test1{
+		display: block;
+	}
+	
+.text-text{
+	width:100%;
+	height: 60px;
+}
+select{
+	width: 100%;
+}
+form {
+  width: 400px;
+}
+label {
+	width: 100%;
+}
+.textfield-label{
+  margin-bottom: 10px;
+  text-align: left;
+}
+input, textarea{
+}
+textarea {
+	width:100%;
+	height: 240px;
+}
+.texta{
+	height: 240px;
+}
+.font-normal{
+	margin-left:10px;
+	}
+.radio123 + span {
+    margin: 10px;
+	}
+.check-group{
+	margin-bottom: 50px;
+	margin-top: 41px;
+}
+/*----- Contact end -----*/
+/*----- footer -----*/
+		
+	.foot-conte-width{
+		width: 100%;
+		margin: 0 auto;
+	}
+	/*flex-box  をblockに戻すよ-----------*/
+	.logo-conte  .footer-list .sns-links{
+	display: block;
+	flex-wrap: nowrap;
+}
+	.flex-conte{
+	display: block;
+	justify-content: flex-start;
+	}
+	/*flex-box  end---------------------*/
+
+	.footer-list{
+		display: block;
+	}
+	.footer-list{
+		width: 95%;
+	}
+	.footer-list ul{
+	display: flex;
+	justify-content: space-between;
+	}
+
+	.footer-list ul li {
+		margin: 15px 10px;
+		position: static;
+
+}
+	.sns-links{
+		width: 400px;
+		margin: 70px auto;
+		display: flex;
+		justify-content: space-between;
+}
+	.tw .fb{
+		margin-right: 30px;
+}
+}
+@media screen and (max-width:1024px){
+  /*タブレット用*/
+	.container{
+		width: 90%;
+	}
+	.card-item{
+		 width: calc(50% - 15px);
+	}
+	.card-cont{
+		height:  calc(50% - 15px);
+	}
+	.news-cont{
+		height: 100%;
+	}
+	.n-cont{
+		width: 90%;
+	}
+	.topic-item{
+		width: 100%;
+		margin-top:10px;
+	}
+	.txt{
+		display: unset;
+	}
+	.txt a {
+    word-wrap:break-word;
+    }
+	
+	/*----- price -----*/
+	
+.img-price-cont{
+	display: flex;
+		flex-direction: column;
+}
+	.classtable-cont{
+		float: none;
+	}
+	.haan-img , .classtable-cont{
+		margin:0 auto;
+	}
+	.price-cont{
+		padding-top:50px;
+	}
+	td, th{
+		border:1px solid #707070;
+	}     
+	.ask{
+		clear:none;
+}
+	/*---access---*/
+	.access-contents{
+		width: 100%;
+	}
+	.access-cont{
+		width: 90%;
+	}
+	/*---footer---*/
+	.foot-conte-width{
+		width: 100%;
+	}
+	.logo-conte{
+		margin-left: -30px;
+	}
+	.footer-list ul li {
+		  display: flex;
+		  margin-bottom: -55px;
+		  text-align: center;
+	}
+	.footlists{
+		text-align: center;
+	}
+}
